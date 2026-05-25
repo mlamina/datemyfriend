@@ -1,0 +1,16 @@
+# Design handoff bundle (source material, not part of the site)
+handoff/
+datemyfriend-handoff.tar.gz
+
+# PAI working memory
+MEMORY/
+
+# Scratch screenshots / scripts from this session
+hinge-landing.png
+tinder-landing.png
+shoot-hinge.mjs
+shoot-tinder.mjs
+verify-site.mjs
+
+# OS
+.DS_Store

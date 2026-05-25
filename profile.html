@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>datemyfriend — a note from Julie</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=DM+Sans:opsz,wght@9..40,400..700&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@500;600&display=swap"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+  <div class="profile-page-wrap">
+    <div class="scanned-hint">
+      <span class="caption">scanned from Julie's QR · 11:42pm</span>
+    </div>
+
+    <div data-view>
+      <!-- ── Profile card (in-page) ──────────────────────────── -->
+      <article class="profile-card in-page">
+        <section class="profile-endorsement">
+          <div class="profile-endorsement__label eyebrow-muted">Julie wants you to meet Sarah</div>
+          <blockquote class="profile-endorsement__text">I've known Sarah since college. She's the most curious person you'll meet at this party — she'll ask you three questions before she tells you anything about herself, and the third one will be the one that surprises you.</blockquote>
+          <div class="profile-endorsement__sig">
+            <span class="profile-endorsement__sig-avatar" aria-hidden="true"><img src="images/julie.webp" alt="" /></span>
+            <span class="profile-endorsement__sig-name">Julie, <span class="profile-endorsement__sig-rel">Sarah's friend</span></span>
+          </div>
+        </section>
+
+        <hr class="profile-rule" />
+
+        <section class="profile-meet">
+          <div class="profile-meet__photos">
+            <div class="profile-meet__photo img-frame"><img src="images/sarah.webp" alt="" /></div>
+            <div class="profile-meet__photo img-frame"><img src="images/sarah-filming.webp" alt="" /></div>
+            <div class="profile-meet__photo img-frame"><img src="images/sarah-baking.webp" alt="" /></div>
+          </div>
+          <h1 class="profile-meet__name">Sarah</h1>
+          <div class="profile-meet__details caption">34 · Mission District · documentary filmmaker</div>
+          <p class="profile-meet__bio">I make documentaries for a living and bake bread for everyone in my building on Sundays. Recently I've been re-reading the books I pretended to read in college, and it turns out I was right about most of them. Looking for someone with their own thing going on, who's good at long walks and the kind of dinner that runs late.</p>
+        </section>
+      </article>
+
+      <!-- ── Note form ───────────────────────────────────────── -->
+      <section class="profile-form">
+        <div class="container-narrow" style="padding:0">
+          <p class="form-intro">
+            If you'd like to be introduced, leave a note. <em>Sarah</em> will see it
+            and decide whether to reach out.
+          </p>
+
+          <form data-profile-form>
+            <div class="field">
+              <label for="p-name">Your name</label>
+              <input id="p-name" class="input" type="text" placeholder="first name is fine" />
+            </div>
+
+            <div class="field">
+              <label for="p-phone">Your phone number</label>
+              <input id="p-phone" class="input" type="tel" inputmode="tel" autocomplete="tel" placeholder="(415) 555–0123" />
+              <div class="helper" style="flex-direction:row">
+                <span>Only Sarah will see this. She'll text you if she'd like to meet.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>A photo of you</label>
+              <div class="photo-upload">
+                <div class="photo-upload__preview">
+                  <span class="placeholder">+</span>
+                </div>
+                <div class="photo-upload__label">
+                  <input type="file" accept="image/*" data-photo-input />
+                  <button type="button" class="photo-upload__btn" data-photo-btn>Choose a photo</button>
+                  <span class="photo-upload__hint">Sarah sees the same crop you see.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="p-note">A note</label>
+              <textarea id="p-note" class="textarea" maxlength="320" placeholder="It was good to meet your friend tonight. I'd be curious to…"></textarea>
+              <div class="helper">
+                <span>A sentence or two is plenty. Something that gives Sarah a sense of you.</span>
+                <span class="count">0 / 280</span>
+              </div>
+            </div>
+
+            <button class="btn" type="submit" data-submit disabled style="margin-top:12px;opacity:0.45;cursor:not-allowed" title="Add a name, a photo, and a note first.">Send your note</button>
+
+            <div class="helper" data-hints style="margin-top:14px">A photo helps Sarah place you. Add your name. And your number. And a sentence.</div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="caption">datemyfriend</div>
+          <div class="caption" style="font-family:var(--serif);font-style:italic;letter-spacing:0;font-size:14px">Private link. Not indexed.</div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ── Confirmation ──────────────────────────────────────── -->
+    <div class="profile-confirm fade-in" data-confirm hidden>
+      <div class="mark" aria-hidden="true">·</div>
+      <h2>We've passed your note along to Sarah.</h2>
+      <p>If she wants to be in touch, you'll hear from her by text.</p>
+      <p style="margin-top:28px;font-style:italic">That's it. No app, no inbox, no waiting screen.<br />Go enjoy your night.</p>
+      <div style="margin-top:56px"><a href="index.html" class="btn-link">← back to datemyfriend</a></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var form = document.querySelector('[data-profile-form]');
+      if (!form) return;
+      var nameI = document.getElementById('p-name');
+      var phoneI = document.getElementById('p-phone');
+      var noteI = document.getElementById('p-note');
+      var fileI = form.querySelector('[data-photo-input]');
+      var photoBtn = form.querySelector('[data-photo-btn]');
+      var preview = form.querySelector('.photo-upload__preview');
+      var hint = form.querySelector('.photo-upload__hint');
+      var countEl = form.querySelector('.count');
+      var submit = form.querySelector('[data-submit]');
+      var hints = form.querySelector('[data-hints]');
+      var hasPhoto = false;
+
+      var isReady = function () {
+        return nameI.value.trim() && phoneI.value.trim() && noteI.value.trim() && hasPhoto;
+      };
+
+      var update = function () {
+        var ready = isReady();
+        submit.disabled = !ready;
+        submit.style.opacity = ready ? '1' : '0.45';
+        submit.style.cursor = ready ? 'pointer' : 'not-allowed';
+        submit.title = ready ? '' : 'Add a name, a photo, and a note first.';
+        if (ready) {
+          hints.hidden = true;
+        } else {
+          hints.hidden = false;
+          var s = '';
+          if (!hasPhoto) s += 'A photo helps Sarah place you. ';
+          if (!nameI.value.trim()) s += 'Add your name. ';
+          if (!phoneI.value.trim()) s += 'And your number. ';
+          if (!noteI.value.trim()) s += 'And a sentence.';
+          hints.textContent = s;
+        }
+      };
+
+      photoBtn.addEventListener('click', function () { fileI.click(); });
+      fileI.addEventListener('change', function (e) {
+        var file = e.target.files && e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function () {
+          var img = document.createElement('img');
+          img.src = reader.result;
+          img.alt = '';
+          preview.innerHTML = '';
+          preview.appendChild(img);
+          hasPhoto = true;
+          hint.textContent = 'looks good.';
+          photoBtn.textContent = 'Replace photo';
+          update();
+        };
+        reader.readAsDataURL(file);
+      });
+      noteI.addEventListener('input', function () {
+        countEl.textContent = noteI.value.length + ' / 280';
+        update();
+      });
+      [nameI, phoneI].forEach(function (el) { el.addEventListener('input', update); });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!isReady()) return;
+        document.querySelector('[data-view]').hidden = true;
+        document.querySelector('[data-confirm]').hidden = false;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      update();
+    })();
+  </script>
+</body>
+</html>
