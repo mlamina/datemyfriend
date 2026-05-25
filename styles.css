@@ -787,6 +787,9 @@ em.serif-italic, .serif-italic {
   font-weight: 500;
 }
 
+.founder .sig a { color: inherit; transition: color 160ms ease; }
+.founder .sig a:hover { color: var(--accent); }
+
 @media (max-width: 800px) {
   .founder { grid-template-columns: 1fr; }
   .founder .founder-photo { max-width: 380px; }
